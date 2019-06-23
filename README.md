@@ -1,4 +1,7 @@
 # Portal
+
+[![CircleCI](https://circleci.com/gh/NITTC-ComputerClub/Portal.svg?style=svg&circle-token=66078d5d5ea19e062db6a4cd882ede9c8261f71b)](https://circleci.com/gh/NITTC-ComputerClub/Portal)
+
 Common user managing system on Symfony 4.
 
 ## Requirements
