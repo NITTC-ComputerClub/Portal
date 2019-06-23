@@ -61,6 +61,7 @@
         }
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.11",
         "symfony/phpunit-bridge": "v4.3.1"
     }
 }
