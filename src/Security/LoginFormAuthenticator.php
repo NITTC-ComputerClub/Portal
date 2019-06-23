@@ -108,7 +108,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         }
 
         return new RedirectResponse(
-            $this->urlGenerator->generate('home_index') // TODO: Create the route
+            $this->urlGenerator->generate('home_index')
         );
     }
 
