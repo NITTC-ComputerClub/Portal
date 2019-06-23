@@ -17,7 +17,9 @@ jobs:
             - checkout
 
             # Install PHP extensions
-            - run: sudo docker-php-ext-install iconv pdo_mysql
+            - run:
+                  name: Install PHP extensions
+                  command: sudo docker-php-ext-install iconv pdo_mysql
 
             # Download and cache dependencies
             - restore_cache:
@@ -28,11 +30,14 @@ jobs:
                       - v1-dependencies-
 
             # Setup Composer locally
-            - run: wget https://getcomposer.org/composer.phar
-            - run: chmod 0700 ./composer.phar
+            - run:
+                  name: Download Composer
+                  command: wget https://getcomposer.org/composer.phar; chmod 0700 ./composer.phar
 
             # Install dependencies via installed Composer
-            - run: ./composer.phar install -n --prefer-dist
+            - run:
+                  name: Install Composer dependencies
+                  command: ./composer.phar install -n --prefer-dist
 
             # Cache dependencies
             - save_cache:
@@ -41,7 +46,11 @@ jobs:
                       - ./vendor
 
             # Migrate database
-            # - run: ./bin/console doctrine:migrations:migrate -n
+            # - run:
+            #       name: Migrate database
+            #       command: ./bin/console doctrine:migrations:migrate -n
 
             # Run tests with phpunit
-            - run: ./bin/phpunit
+            - run:
+                  name: Run PHPUnit
+                  command: ./bin/phpunit
