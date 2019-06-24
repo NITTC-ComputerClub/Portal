@@ -20,8 +20,8 @@
         "doctrine/doctrine-fixtures-bundle": "^3.2",
         "liip/functional-test-bundle": "^3.0",
         "symfony/maker-bundle": "^1.11",
-        "symfony/phpunit-bridge": "v4.3.1",
         "symfony/profiler-pack": "^1.0",
+        "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "4.3.*"
     },
     "config": {
