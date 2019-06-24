@@ -16,7 +16,7 @@ Common user managing system on Symfony 4.
 1. Run `symfony serve` or `bin/console server:run` to start the server.
 
 ## License
-(C) 2019 Naoki Ikeguchi <siketyan@sikeserver.com>
+(C) 2019 Naoki Ikeguchi &lt;siketyan@sikeserver.com&gt;
 
 This program is released under the MIT license.
 For details, refer [LICENSE.md](LICENSE.md).
