@@ -39,6 +39,11 @@ class User implements UserInterface
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $studentId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class User implements UserInterface
     public function setName(Name $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getStudentId(): ?int
+    {
+        return $this->studentId;
+    }
+
+    public function setStudentId(int $studentId): self
+    {
+        $this->studentId = $studentId;
 
         return $this;
     }
