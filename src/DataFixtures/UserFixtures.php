@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use DateTimeImmutable;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -43,6 +44,8 @@ class UserFixtures extends Fixture
             ->setRoles([
                 'ROLE_ADMIN',
             ])
+            ->setStudentId(0)
+            ->setBirthday(new DateTimeImmutable())
         ;
 
         $manager->persist($root);

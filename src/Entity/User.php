@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -32,6 +33,22 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Name", inversedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $studentId;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
 
     public function getId(): ?int
     {
@@ -104,5 +121,41 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getName(): ?Name
+    {
+        return $this->name;
+    }
+
+    public function setName(Name $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getStudentId(): ?int
+    {
+        return $this->studentId;
+    }
+
+    public function setStudentId(int $studentId): self
+    {
+        $this->studentId = $studentId;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(?DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
+
+        return $this;
     }
 }
