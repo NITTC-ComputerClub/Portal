@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Detail{% endblock %}
+
+{% block body %}
+    {% if user.name %}
+        <h1>
+            <ruby>
+                <rb>{{ user.name.lastName }}</rb>
+                <rb>{{ user.name.lastNameKana }}</rb>
+            </ruby>
+            <ruby>
+                <rb>{{ user.name.firstName }}</rb>
+                <rt>{{ user.name.firstNameKana }}</rt>
+            </ruby>
+            <small class="text-muted">{{ user.username }}</small>
+        </h1>
+    {% else %}
+        <h1>{{ user.username }}</h1>
+    {% endif %}
+    <ul>
+        <li>
+            <b>Student ID:</b>
+            {{ user.studentId }}
+        </li>
+        <li>
+            <b>Birthday:</b>
+            {{ user.birthday | date('Y/m/d') }}
+        </li>
+    </ul>
+{% endblock %}
