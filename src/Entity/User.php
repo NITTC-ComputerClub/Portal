@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -43,6 +44,11 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $studentId;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
 
     public function getId(): ?int
     {
@@ -137,6 +143,18 @@ class User implements UserInterface
     public function setStudentId(int $studentId): self
     {
         $this->studentId = $studentId;
+
+        return $this;
+    }
+
+    public function getBirthday(): ?DateTimeInterface
+    {
+        return $this->birthday;
+    }
+
+    public function setBirthday(?DateTimeInterface $birthday): self
+    {
+        $this->birthday = $birthday;
 
         return $this;
     }
