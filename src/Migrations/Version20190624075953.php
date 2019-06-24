@@ -47,7 +47,7 @@ final class Version20190624075953 extends AbstractMigration
 
         $this->addSql(
             'ALTER TABLE user '
-                .'ADD name_id INT NOT NULL,'
+                .'ADD name_id INT DEFAULT NULL,'
                 .'ADD student_id INT NOT NULL,'
                 .'ADD birthday DATE DEFAULT NULL,'
                 .'CHANGE roles roles JSON NOT NULL'
