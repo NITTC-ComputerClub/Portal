@@ -36,6 +36,11 @@ class Name
      */
     private $lastNameKana;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", mappedBy="name", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,23 @@ class Name
     public function setLastNameKana(string $lastNameKana): self
     {
         $this->lastNameKana = $lastNameKana;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $user->getName()) {
+            $user->setName($this);
+        }
 
         return $this;
     }
