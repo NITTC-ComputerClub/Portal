@@ -2,21 +2,21 @@
 
 namespace App\Repository;
 
-use App\Entity\FullName;
+use App\Entity\Name;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method FullName|null find($id, $lockMode = null, $lockVersion = null)
- * @method FullName|null findOneBy(array $criteria, array $orderBy = null)
- * @method FullName[]    findAll()
- * @method FullName[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Name|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Name|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Name[]    findAll()
+ * @method Name[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FullNameRepository extends ServiceEntityRepository
+class NameRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, FullName::class);
+        parent::__construct($registry, Name::class);
     }
 
     // /**
