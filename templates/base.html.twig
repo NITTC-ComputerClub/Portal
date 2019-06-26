@@ -13,6 +13,19 @@
         {% include 'navbar.html.twig' %}
 
         <main class="container py-5">
+            {% block flashes %}
+                {% if app.session.flashbag.peekAll|length > 0 %}
+                    {% for type, messages in app.session.flashbag.all %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ type }} alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            {% endblock %}
+
             {% block body %}{% endblock %}
         </main>
 

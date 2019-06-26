@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -49,6 +51,16 @@ class User implements UserInterface
      * @ORM\Column(type="date", nullable=true)
      */
     private $birthday;
+
+    /**
+     * User constructor.
+     *
+     * @throws Exception
+     */
+    public function __construct()
+    {
+        $this->birthday = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
