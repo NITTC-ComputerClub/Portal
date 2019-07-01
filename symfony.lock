@@ -99,6 +99,9 @@
     "liip/functional-test-bundle": {
         "version": "3.0.0"
     },
+    "liip/test-fixtures-bundle": {
+        "version": "1.0.0"
+    },
     "nikic/php-parser": {
         "version": "v4.2.2"
     },
