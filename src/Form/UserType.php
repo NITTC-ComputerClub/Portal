@@ -21,11 +21,7 @@ class UserType extends AbstractType
         $builder
             ->add('username', TextType::class)
             ->add('password', PasswordType::class)
-            ->add('name', NameType::class, [
-                'attr' => [
-                    'class' => 'pl-md-5 pl-3'
-                ]
-            ])
+            ->add('name', NameType::class)
             ->add('studentId', NumberType::class)
             ->add('birthday', DateType::class, [
                 'years' => range($currentYear - 100, $currentYear),
