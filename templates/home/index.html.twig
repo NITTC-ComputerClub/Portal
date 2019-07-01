@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="text-center">
-        {% if is_granted('ROLE_USER') %}
+        {% if app.user %}
             <h1 class="display-4">
                 Welcome back, {{ app.user.username }}!
             </h1>
