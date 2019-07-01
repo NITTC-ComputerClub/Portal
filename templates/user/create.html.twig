@@ -3,5 +3,11 @@
 {% block title %}Add a User{% endblock %}
 
 {% block body %}
-    {{ form(form) }}
+    <div class="page-title mb-4">
+        <h2 class="mb-0">Create a User</h2>
+        <p class="lead">Create a new user on this app.</p>
+    </div>
+    <div>
+        {{ form(form) }}
+    </div>
 {% endblock %}
