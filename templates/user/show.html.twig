@@ -3,21 +3,23 @@
 {% block title %}User Detail{% endblock %}
 
 {% block body %}
-    {% if user.name %}
-        <h1>
-            <ruby>
-                <rb>{{ user.name.lastName }}</rb>
-                <rt>{{ user.name.lastNameKana }}</rt>
-            </ruby>
-            <ruby>
-                <rb>{{ user.name.firstName }}</rb>
-                <rt>{{ user.name.firstNameKana }}</rt>
-            </ruby>
-            <small class="text-muted">{{ user.username }}</small>
-        </h1>
-    {% else %}
-        <h1>{{ user.username }}</h1>
-    {% endif %}
+    <div class="page-title mb-4">
+        {% if user.name %}
+            <h1>
+                <ruby>
+                    <rb>{{ user.name.lastName }}</rb>
+                    <rt>{{ user.name.lastNameKana }}</rt>
+                </ruby>
+                <ruby>
+                    <rb>{{ user.name.firstName }}</rb>
+                    <rt>{{ user.name.firstNameKana }}</rt>
+                </ruby>
+                <small class="text-muted">{{ user.username }}</small>
+            </h1>
+        {% else %}
+            <h1>{{ user.username }}</h1>
+        {% endif %}
+    </div>
     <ul>
         <li>
             <b>Student ID:</b>
