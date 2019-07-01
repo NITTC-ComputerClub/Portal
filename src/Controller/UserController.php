@@ -85,6 +85,20 @@ class UserController extends AbstractController
     }
 
     /**
+     * @Route("/list", name="user_list")
+     *
+     * @return Response
+     */
+    public function list(): Response
+    {
+        $users = $this->repository->findAll();
+
+        return $this->render('user/list.html.twig', [
+            'users' => $users,
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="user")
      *
      * @param int $id
