@@ -8,5 +8,11 @@
             {{ error.messageKey|trans(error.messageData, 'security') }}
         </div>
     {% endif %}
-    {{ form(form) }}
+    <div class="page-title mb-4">
+        <h2 class="mb-0">Login</h2>
+        <p class="lead">To access your and others profile, or administrate this app.</p>
+    </div>
+    <div>
+        {{ form(form) }}
+    </div>
 {% endblock %}
