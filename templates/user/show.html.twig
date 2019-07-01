@@ -5,7 +5,7 @@
 {% block body %}
     <div class="page-title mb-4">
         {% if user.name %}
-            <h1>
+            <h2>
                 <ruby>
                     <rb>{{ user.name.lastName }}</rb>
                     <rt>{{ user.name.lastNameKana }}</rt>
@@ -15,9 +15,9 @@
                     <rt>{{ user.name.firstNameKana }}</rt>
                 </ruby>
                 <small class="text-muted">{{ user.username }}</small>
-            </h1>
+            </h2>
         {% else %}
-            <h1>{{ user.username }}</h1>
+            <h2>{{ user.username }}</h2>
         {% endif %}
     </div>
     <ul>
