@@ -57,11 +57,13 @@
         },
         "post-install-cmd": [
             "@auto-scripts",
-            "yarn install"
+            "yarn install",
+            "yarn build"
         ],
         "post-update-cmd": [
             "@auto-scripts",
-            "yarn install"
+            "yarn install",
+            "yarn build"
         ]
     },
     "conflict": {
