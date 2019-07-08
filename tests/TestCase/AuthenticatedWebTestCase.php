@@ -8,7 +8,7 @@ use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\AbstractManagerRegistry;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
-use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Component\HttpKernel\HttpKernelBrowser;
 
 class AuthenticatedWebTestCase extends WebTestCase
 {
@@ -37,7 +37,7 @@ class AuthenticatedWebTestCase extends WebTestCase
         );
     }
 
-    protected function createAuthenticatedClient(): Client
+    protected function createAuthenticatedClient(): HttpKernelBrowser
     {
         $this->login();
 
