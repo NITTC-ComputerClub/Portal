@@ -1,0 +1,23 @@
+\DateTimeImmutable:
+    date_today:
+        __construct: []
+
+App\Entity\Name:
+    name_dummy:
+        firstName: dummy
+        lastName: dummy
+        firstNameKana: dummy
+        lastNameKana: dummy
+
+App\Entity\User:
+    user_normal:
+        username: normal
+        password: dummy
+        studentId: 11111
+        birthday: '@date_today'
+    user_admin:
+        username: admin
+        password: dummy
+        name: '@name_dummy'
+        studentId: 22222
+        birthday: '@date_today'
