@@ -524,6 +524,9 @@
             "ref": "fe5a50faf580eb58f08ada2abe8afbd2d4941e05"
         }
     },
+    "trikoder/oauth2-bundle": {
+        "version": "dev-master"
+    },
     "twig/twig": {
         "version": "v2.11.3"
     },
