@@ -25,3 +25,21 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    Nyholm\Psr7\:
+        resource: '../vendor/nyholm/psr7/src'
+
+    Nyholm\Psr7\Factory\Psr17Factory: ~
+
+    Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory:
+        arguments:
+            - '@Nyholm\Psr7\Factory\Psr17Factory'
+            - '@Nyholm\Psr7\Factory\Psr17Factory'
+            - '@Nyholm\Psr7\Factory\Psr17Factory'
+            - '@Nyholm\Psr7\Factory\Psr17Factory'
+
+    App\EventListener\AuthorizationRequestResolveListener:
+        tags:
+            -   name: kernel.event_listener
+                event: trikoder.oauth2.authorization_request_resolve
+                method: onAuthorizationRequestResolve
