@@ -45,6 +45,24 @@ jobs:
                   paths:
                       - ./vendor
 
+            - run:
+                  name: Generate private key
+                  command: |
+                      openssl genrsa -out private.key 2048 && \
+                      echo "OAUTH2_PRIVATE_KEY=~/repo/private.key" >> .env.local
+
+            - run:
+                  name: Generate public key
+                  command: |
+                      openssl rsa -in private.key -pubout -out public.key && \
+                      echo "OAUTH2_PUBLIC_KEY=~/repo/public.key" >> .env.local
+
+            - run:
+                  name: Generate encryption key
+                  command: |
+                      php -r 'echo base64_encode(random_bytes(32)), PHP_EOL;' >> encryption.key && \
+                      echo "OAUTH2_ENCRYPTION_KEY=~/repo/encryption.key" >> .env.local
+
             # Migrate database
             # - run:
             #       name: Migrate database
