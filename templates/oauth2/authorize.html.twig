@@ -1,0 +1,35 @@
+{% form_theme form 'form_theme/bootstrap_4_inline_layout.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Authorize{% endblock %}
+
+{% block body %}
+<div>
+    <div class="page-title mb-4">
+        <h2 class="mb-0">
+            <i class="fas fa-key fa-fw"></i>
+            Authorize
+        </h2>
+        <p class="lead">Are you sure to authorize your account to the client?</p>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <b>Client ID:</b>
+                {{ client.identifier }}
+            </li>
+            <li>
+                <b>Scopes:</b>
+                <ul>
+                    {% for scope in client.scopes %}
+                        <li>{{ scope }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+        <div class="mt-1">
+            {{ form(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
