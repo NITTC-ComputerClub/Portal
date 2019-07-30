@@ -64,9 +64,9 @@ jobs:
                       echo "OAUTH2_ENCRYPTION_KEY=/home/circleci/repo/encryption.key" >> .env.test.local
 
             # Migrate database
-            # - run:
-            #       name: Migrate database
-            #       command: ./bin/console doctrine:migrations:migrate -n
+            - run:
+                  name: Migrate database
+                  command: ./bin/console doctrine:migrations:migrate -n
 
             # Run tests with phpunit
             - run:
