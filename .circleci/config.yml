@@ -38,7 +38,7 @@ jobs:
             # Download and cache PHPUnit dependencies
             - restore_cache:
                   keys:
-                      - v1-phpunit-dependencies-{{ checksum "bin/.phpunit/phpunit-6.5/composer.lock" }}
+                      - v1-phpunit-dependencies-{{ checksum "composer.lock" }}
                       - v1-phpunit-dependencies-
 
             # Setup Composer locally
@@ -93,6 +93,6 @@ jobs:
 
             # Cache PHPUnit dependencies
             - save_cache:
-                  key: v1-phpunit-dependencies-{{ checksum "bin/.phpunit/phpunit-6.5/composer.lock" }}
+                  key: v1-phpunit-dependencies-{{ checksum "composer.lock" }}
                   paths:
                       - ./bin/.phpunit
