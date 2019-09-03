@@ -21,13 +21,25 @@ jobs:
                   name: Install PHP extensions
                   command: sudo docker-php-ext-install iconv pdo_mysql
 
-            # Download and cache dependencies
+            # Download and cache Composer dependencies
             - restore_cache:
                   keys:
                       # "composer.lock" can be used if it is committed to the repo
-                      - v1-dependencies-{{ checksum "composer.json" }}
+                      - v1-composer-dependencies-{{ checksum "composer.lock" }}
                       # fallback to using the latest cache if no exact match is found
-                      - v1-dependencies-
+                      - v1-composer-dependencies-
+
+            # Download and cache NPM dependencies
+            - restore_cache:
+                  keys:
+                      - v1-npm-dependencies-{{ checksum "yarn.lock" }}
+                      - v1-npm-dependencies-
+
+            # Download and cache PHPUnit dependencies
+            - restore_cache:
+                  keys:
+                      - v1-phpunit-dependencies-{{ checksum "bin/.phpunit/phpunit-6.5/composer.lock" }}
+                      - v1-phpunit-dependencies-
 
             # Setup Composer locally
             - run:
@@ -39,11 +51,17 @@ jobs:
                   name: Install Composer dependencies
                   command: ./composer.phar install -n --prefer-dist
 
-            # Cache dependencies
+            # Cache Composer dependencies
             - save_cache:
-                  key: v1-dependencies-{{ checksum "composer.json" }}
+                  key: v1-composer-dependencies-{{ checksum "composer.lock" }}
                   paths:
                       - ./vendor
+
+            # Cache NPM dependencies
+            - save_cache:
+                  key: v1-npm-dependencies-{{ checksum "yarn.lock" }}
+                  paths:
+                      - ./node_modules
 
             - run:
                   name: Generate private key
@@ -72,3 +90,9 @@ jobs:
             - run:
                   name: Run PHPUnit
                   command: ./bin/phpunit
+
+            # Cache PHPUnit dependencies
+            - save_cache:
+                  key: v1-phpunit-dependencies-{{ checksum "bin/.phpunit/phpunit-6.5/composer.lock" }}
+                  paths:
+                      - ./bin/.phpunit
