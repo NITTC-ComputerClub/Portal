@@ -44,7 +44,7 @@ jobs:
             # Setup Composer locally
             - run:
                   name: Download Composer
-                  command: wget https://getcomposer.org/composer.phar; chmod 0700 ./composer.phar
+                  command: wget https://getcomposer.org/download/1.10.15/composer.phar; chmod 0700 ./composer.phar
 
             # Install dependencies via installed Composer
             - run:
